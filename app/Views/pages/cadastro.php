@@ -95,9 +95,15 @@ h11 {
       <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
       <input id="telefone" name="telefone" class="form-control" placeholder="XX XXXXX-XXXX"  type="text" maxlength="13" pattern="\[0-9]{2}\ [0-9]{4,6}-[0-9]{3,4}$"
       OnKeyPress="formatar('## #####-####', this)">
+
+      
     </div>
+    
   </div>
-  
+  <label class="col-md-1 control-label" >Idade </label>  
+  <div class="col-md-1">
+  <input id="idade" name="idade" placeholder="idade" class="form-control"  type="text" >
+  </div>
    
  </div> 
 

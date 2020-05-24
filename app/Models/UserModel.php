@@ -26,7 +26,8 @@ class UserModel extends Model {
     'experiencia',
     'tipo',
     'nomeEmpresa',
-    'cnpj'
+    'cnpj',
+    'idade'
 ];
     
     

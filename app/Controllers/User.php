@@ -11,6 +11,7 @@ class User extends BaseController
 
 
     public function login(){
+		$session = \Config\Services::session();
 		$model = new  UserModel();
 	
 	
@@ -19,11 +20,37 @@ class User extends BaseController
   
 
 	$data = $model->where('email', $email)
-                  ->first();
+				  ->first();
+
+
+	$dados['candidatos'] = $model->where('tipo',1)
+				  ->findAll();
+				  
+ 
+
+	  $newdata = [
+		'id'  => $data['id'],
+		'email'     => $data['email'],
+		'logado' => TRUE
+	];
+			
+	$session->set($newdata);
+
 	
+	$tipo = $data['tipo'];
+	
+	if($tipo == 1){
+
+		echo view('pages/candidato',$dados);
+
+	}else{
+		echo view('template/headerEmpresa');
+		echo view('pages/empresa',$dados);
+		echo view('template/footerEmpresa');
+	}
 		
 	
-	echo view('pages/main',$data);
+	
 	
         
     }
@@ -35,19 +62,6 @@ class User extends BaseController
 
 
 	   
-	    $model  = new TrabalhosModel();
-	    $resposta=$model->getTrabalhos();
-	    
-	    (!empty($resposta))?$dados=$resposta:$dados=[];
-	    
-	    $data=[
-	        
-	        'trabalhos'=>$dados
-	        
-	        ];
-	   
-	    
-	    echo view('pages/listaTrabalhos',$data);
 	   
 	    
 	}
@@ -61,13 +75,15 @@ class User extends BaseController
 		if($tipo=='1'){
 		
 		$data=[
-	        
-	        'nome'=>$this->request->getVar('nome'),
-		
-			'senha'=>$this->request->getVar('senha'),
-			'email'=>$this->request->getVar('email'),
+			'nome'=>$this->request->getVar('nome'),
 			
-			'tipo'=>$this->request->getVar('tipo')
+			
+			'formacao'=>$this->request->getVar('formacao'),
+			
+			'tipo'=>$this->request->getVar('tipo'),
+            'idade'=>$this->request->getVar('idade')
+
+
 	        
 		];
 	}else{
