@@ -23,13 +23,10 @@ $email = $_SESSION['email'];
   </ul>
   <div class="card-body">
     <a href="#" class="card-link btn btn-primary">Detalhes</a>
-    <a href="#" class="card-link btn btn-primary">Ofertar vaga</a>
+    <a href="#" class="card-link btn btn-success">Ofertar vaga</a>
   </div>
 </div>
 <?php   } ?>
-
-
-
 
 
 

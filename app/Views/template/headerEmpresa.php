@@ -43,6 +43,6 @@ button{
 <body>
 
 <nav class="navbar   navbar-dark bg-primary">
-<a class="navbar-brand" href="#">Fixo na parte superior</a>
+<a  class="navbar-brand btn btn-primary bg-light text-primary  btn-sm" href="empresa/minhasvagas">Vagas Ofertadas</a>
 
 </nav>
