@@ -33,6 +33,12 @@ body{
 input,button,textarea,p,li{
     font:400 18px Roboto , sans-serif;
 }
+li{
+    font:400 18px Roboto , sans-serif; 
+}
+p{
+    font:400 18px Roboto , sans-serif;
+}
 
 button{
     cursor: pointer;
@@ -42,15 +48,14 @@ button{
 </style>
 <body>
 
-<nav class="navbar   navbar-dark "  style="background:#990100"> 
 
- 
-   <a   style=" margin-left:60px;" class="navbar-brand btn btn-primary bg-light text-primary  btn-sm" href="empresa/minhasvagas">Vagas Ofertadas</a>
-   <a   style=" margin-left:60px;" class="navbar-brand btn btn-primary bg-light text-primary  btn-sm" href="rank">Rank Candidatos</a>
-   <form class="form-inline">
+<nav class="navbar   navbar-dark " style="background:#990100"  >
+<a   style=" margin-left:60px;" class="navbar-brand btn btn-primary bg-light text-primary" href="cursos">Cursos</a>
+<form action="" class="form-inline">
     <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Pesquisar">
-    <button class="navbar-brand btn btn-primary bg-light text-primary my-2 my-sm-0" type="submit">Pesquisar</button>
+    <button class="navbar-brand btn btn-primary bg-light text-primary  my-sm-0" type="submit">Pesquisar</button>
   </form>
-<a  class="navbar-brand btn btn-primary bg-light text-primary   btn-sm" href="./">Sair</a>
+<a  class="navbar-brand btn btn-primary bg-light text-primary  bt-lg" href="./">Sair</a>
 
 </nav>
+

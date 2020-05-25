@@ -35,6 +35,10 @@ $routes->post('/login','User::login');
 $routes->get('/cadastrar','Home::cadastro');
 $routes->get('/cadastrarEmpresa','Home::cadastroEmpresa');
 $routes->get('/cancelar','Home::index');
+$routes->post('/cadastrarVaga','Empresa::criarVaga');
+$routes->get('/voltar/login','User::login');
+$routes->post('/login2','User::login2');
+
 
 
 /**

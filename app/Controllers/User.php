@@ -4,17 +4,41 @@
 namespace App\Controllers;
 use CodeIgnite\Controller;
 use App\Models\UserModel;
-
+use App\Models\EmpresaModel;
 class User extends BaseController
 {
 
+public function voltarlogin(){
 
+	$model = new  UserModel();
+	
+	$dados['candidatos'] = $model->where('tipo',1)
+	->findAll();
+	
+	echo view('template/headerEmpresa');
+	echo view('pages/empresa',$dados);
+	echo view('template/footerEmpresa');
+
+}
+
+public function login2(){
+    
+	$modelEmpresa = new EmpresaModel; 
+	$dadosEmpresa['vagas'] = $modelEmpresa->findAll();
+	echo view('template/headerUser');
+	echo view('pages/candidato',$dadosEmpresa);
+	echo view('template/footerUser');
+
+
+}
 
     public function login(){
 		$session = \Config\Services::session();
 		$model = new  UserModel();
-	
-	
+		$modelEmpresa = new EmpresaModel; 
+
+        $dadosEmpresa['vagas'] = $modelEmpresa->findAll();
+	if(!empty($_POST['email'])){
 	$email=    	$_POST['email'];
 	$senha =   	$_POST['senha'];
   
@@ -40,14 +64,27 @@ class User extends BaseController
 	$tipo = $data['tipo'];
 	
 	if($tipo == 1){
-
-		echo view('pages/candidato',$dados);
+        echo view('template/headerUser');
+		echo view('pages/candidato',$dadosEmpresa);
+		echo view('template/footerUser');
 
 	}else{
 		echo view('template/headerEmpresa');
 		echo view('pages/empresa',$dados);
 		echo view('template/footerEmpresa');
 	}
+
+}else{
+
+	$dados['candidatos'] = $model->where('tipo',1)
+	->findAll();
+
+	echo view('template/headerEmpresa');
+	echo view('pages/empresa',$dados);
+	echo view('template/footerEmpresa');
+
+
+}
 		
 	
 	
@@ -113,6 +150,9 @@ class User extends BaseController
 		return redirect()->to('../recton');
         
 	}
+
+   
+
 	
 	public function deletar($id=null){
 	      $model  = new TrabalhosModel();

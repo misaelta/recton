@@ -9,7 +9,13 @@ class EmpresaModel extends Model {
     protected $table="vaga";
     protected $primaryKey="id";
     protected $allowedFields=[
-
+      
+        'funcao',
+        'salario',
+        'cargahoraria',
+        'requisitos',
+        'descricao',
+        'turno'
 
   
 ];
